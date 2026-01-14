@@ -5,4 +5,4 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "bourbon-collection"
-database_id = "local-dev-db"
+database_id = "13b71248-8009-4c43-83c9-e9c6e3fa2e21"
