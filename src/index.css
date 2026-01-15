@@ -964,18 +964,17 @@ a {
   }
 
   .home-stats {
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.5rem 0;
     margin-bottom: 2rem;
   }
 
   .home-stat .number {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .home-stat .label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .home-description {
