@@ -41,11 +41,6 @@ function Home() {
           </div>
         </div>
 
-        <p className="home-description">
-          A curated collection of fine Kentucky bourbons,
-          each with personal tasting notes and reviews.
-        </p>
-
         <div className="home-buttons">
           <Link to="/collection" className="btn-primary">
             View Collection
