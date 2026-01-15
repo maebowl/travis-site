@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBourbons } from '../context/BourbonContext';
 
+const PASSWORD = 'wilddanger';
+
 const emptyBourbon = {
   name: '',
   distillery: '',
@@ -19,6 +21,48 @@ const emptyBourbon = {
 
 function Manage() {
   const { bourbons, addBourbon, updateBourbon, deleteBourbon, resetToDefault } = useBourbons();
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem('manage_auth') === 'true';
+  });
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (passwordInput === PASSWORD) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('manage_auth', 'true');
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="manage-page">
+        <div className="login-container">
+          <h1>Manage Collection</h1>
+          <form onSubmit={handleLogin} className="login-form">
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                placeholder="Enter password"
+                autoFocus
+              />
+            </div>
+            {passwordError && <p className="login-error">Incorrect password</p>}
+            <button type="submit" className="btn-primary">Enter</button>
+          </form>
+          <Link to="/" className="back-link">Back to Home</Link>
+        </div>
+      </div>
+    );
+  }
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyBourbon);
   const [showForm, setShowForm] = useState(false);

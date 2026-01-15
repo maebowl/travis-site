@@ -45,9 +45,6 @@ function Home() {
           <Link to="/collection" className="btn-primary">
             View Collection
           </Link>
-          <Link to="/manage" className="btn-secondary">
-            Manage
-          </Link>
         </div>
       </div>
     </div>
