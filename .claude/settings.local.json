@@ -14,7 +14,9 @@
       "Bash(git push:*)",
       "Bash(wrangler login:*)",
       "Bash(wrangler d1 create:*)",
-      "Bash(wrangler d1 execute:*)"
+      "Bash(wrangler d1 execute:*)",
+      "Bash(npx wrangler d1 execute:*)",
+      "Bash(npx wrangler login)"
     ]
   }
 }
